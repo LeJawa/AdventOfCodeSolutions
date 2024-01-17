@@ -1,10 +1,10 @@
 ######################################
-# Solution for part 1 of day 01/2015 #
+# Solution for part 1 of day 02/2015 #
 ######################################
 
 from src.common.load_file import load_file
 
-year, day = 2015, 1
+year, day = 2015, 2
 input: list[str] = load_file(year, day)
 
 
