@@ -58,7 +58,7 @@ def create_part_file(year: int, day: int, part: int) -> None:
         
         f.write('if __name__ == "__main__":\n')
         f.write( "    result = run()\n")
-        f.write(f"    print(f\"Part {part} day {{day}} - {{year}}\\nResult: {{result}}\")\n")
+        f.write(f"    print(f\"Part {part} day {{day}} - {{year}}\\nResult: {{result}}\\n\")\n")
 
 
 def create_test_file(year: int, day: int) -> None:
