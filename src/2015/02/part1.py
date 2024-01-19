@@ -15,7 +15,7 @@ def run() -> None:
     for gift in input:
         l,w,h = [int(x) for x in gift.strip().split("x")]
         
-        result += 2*l*w + 2*l*h + 2*w*h
+        result += 2*(l*w + l*h + w*h)
         result += min(l*w, l*h, w*h)    
     
     return str(result)
