@@ -45,7 +45,8 @@ def create_part_file(year: int, day: int, part: int) -> None:
         f.write(f"#  Finished:    ----/--/--           #\n")
         f.write("######################################\n\n")
 
-        f.write("from src.common.load_file import load_file\n\n")
+        f.write("from src.common.load_file import load_file\n")
+        f.write("from src.common.function_import import import_function\n\n")
 
         f.write(f"year, day = {year}, {day}\n")
         f.write("input: list[str] = load_file(year, day)\n\n")

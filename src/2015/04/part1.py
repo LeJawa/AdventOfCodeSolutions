@@ -2,7 +2,7 @@
 # Solution for part 1 of day 04/2015 #
 #                                    #
 #  Started:     2024/01/20           #
-#  Finished:    ----/--/--           #
+#  Finished:    2024/01/20           #
 ######################################
 
 from src.common.load_file import load_file

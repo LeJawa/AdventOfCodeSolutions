@@ -6,14 +6,12 @@
 ######################################
 
 from src.common.load_file import load_file
-try:
-    from part1 import UniqueLocations
-except:
-    from importlib import import_module
-    UniqueLocations = import_module("src.2015.03.part1").UniqueLocations
+from src.common.function_import import import_function
     
 year, day = 2015, 3
 input: list[str] = load_file(year, day)
+
+UniqueLocations = import_function(year, day, 1, "UniqueLocations")
 
 def run() -> None:
     visited_houses = UniqueLocations()
