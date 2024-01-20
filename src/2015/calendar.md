@@ -46,7 +46,11 @@ Part 2 is very similar, except that we have two sets of positions that we altern
 
 ### Part One
 
+I solved this challenge by brute force alone. I currently used the md5 algorithm from the `hashlib` library, but I might try to implement it myself later.
+
 ### Part Two
+
+Part 2 is identical but longer.
 
 ## [Day 5: Doesn't He Have Intern-Elves For This?](https://adventofcode.com/2015/day/5)
 

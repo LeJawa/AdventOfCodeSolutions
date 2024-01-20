@@ -12,6 +12,17 @@
             "console": "integratedTerminal",
             "justMyCode": true
         },
+        {
+            "name": "Python: current",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+              "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
         
     ]
 }
