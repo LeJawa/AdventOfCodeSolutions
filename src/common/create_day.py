@@ -9,7 +9,7 @@ def create_day(year: str, day: str) -> None:
         day = parse_day(day)
     except ValueError as e:
         print(e)
-        sys.exit(1)
+        raise ValueError("Error parsing year or day.")
 
     # src
     Path(f"src/{year}/{day:02d}").mkdir(parents=True, exist_ok=True)

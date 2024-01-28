@@ -23,6 +23,8 @@ def parse_year(year: str) -> int:
             if year < 15 or year > LAST_YEAR % 100:
                 raise ValueError
             year += 2000
+        else:
+            raise ValueError
     except ValueError:
         raise ValueError("Year must be a number between 2015 and current year.")
 
