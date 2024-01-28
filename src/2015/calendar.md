@@ -59,9 +59,41 @@ Part 2 uses the exact same code from Part 1, but for 6 zeros, so it takes longer
 
 ### Part One
 
+I used regex to find the patterns in the strings. The only difficulty was matching the repeating letters. But the re library allows to match any previously found group with the `\1` syntax. To avoid any lookahead or lookbehind, I simply used three separate patterns.
+
 ### Part Two
 
+For Part 2 I again made use of the `\1` syntax for the two patterns necessary. 
+
 ## [Day 6: Probably a Fire Hazard](https://adventofcode.com/2015/day/6)
+
+### Part One
+
+My first implementation is very naive. I crate a 1000x1000 grid of True/False and I loop through the instructions, toggling the lights on or off. The parsing of the instructions is done with regex.
+
+### Part Two
+
+I copied the code from Part 1 and replaced the True/False with integers while making sure to not go below zero.
+
+## [Day 7: Some Assembly Required](https://adventofcode.com/2015/day/7)
+
+### Part One
+
+### Part Two
+
+## [Day 8: Matchsticks](https://adventofcode.com/2015/day/8)
+
+### Part One
+
+### Part Two
+
+## [Day 9: All in a Single Night](https://adventofcode.com/2015/day/9)
+
+### Part One
+
+### Part Two
+
+## [Day 10: Elves Look, Elves Say](https://adventofcode.com/2015/day/10)
 
 ### Part One
 
