@@ -46,11 +46,14 @@ Part 2 is very similar, except that we have two sets of positions that we altern
 
 ### Part One
 
-I solved this challenge by brute force alone. I currently used the md5 algorithm from the `hashlib` library, but I might try to implement it myself later.
+I solved this challenge by brute force alone. Simply increment the number until the md5 hash starts with 5 zeros.
+I currently used the md5 algorithm from the `hashlib` library, but I might try to implement it myself later.
+
+To speed the computation up, I used the `multiprocessing` library to run the md5 algorithm in parallel.
 
 ### Part Two
 
-Part 2 is identical but longer.
+Part 2 uses the exact same code from Part 1, but for 6 zeros, so it takes longer.
 
 ## [Day 5: Doesn't He Have Intern-Elves For This?](https://adventofcode.com/2015/day/5)
 

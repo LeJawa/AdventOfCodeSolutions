@@ -3,6 +3,7 @@
 #                                    #
 #  Started:     2024/01/20           #
 #  Finished:    2024/01/20           #
+#  Improved:    2024/01/28           #
 ######################################
 
 from src.common.load_file import load_file
@@ -14,7 +15,7 @@ input: list[str] = load_file(year, day)
 get_number = import_function(year, day, 1, "get_number")
 
 def run() -> None:
-    result = get_number(6)
+    result = get_number(input[0], 6)
     return str(result)
 
 if __name__ == "__main__":
