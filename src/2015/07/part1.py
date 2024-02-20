@@ -1,0 +1,126 @@
+######################################
+# Solution for part 1 of day 07/2015 #
+#                                    #
+#  Started:     2024/01/28           #
+#  Finished:    ----/--/--           #
+######################################
+
+from src.common.load_file import load_file, load_test_file
+from src.common.function_import import import_function
+import re
+
+year, day = 2015, 7
+input: list[str] = load_file(year, day)
+# input: list[str] = load_test_file(year, day)
+
+def calculate_gate(gate_list: list[str, str, str]) -> int:
+    if gate_list[0]:
+        in1 = int(gate_list[0])
+    if gate_list[1]:
+        in2 = int(gate_list[1])
+    
+    gate = gate_list[2]
+    if not gate:
+        return in1
+    
+    if gate == "NOT":
+        return ~in2
+    if gate == "AND":
+        return in1 & in2
+    if gate == "OR":
+        return in1 | in2
+    if gate == "RSHIFT":
+        return in1 >> in2
+    # gate == "LSHIFT"
+    return in1 << in2
+
+def can_calculate_gate(gate_list) -> bool:
+    try:
+        if gate_list[0]:
+            in1 = int(gate_list[0])
+        if gate_list[1]:
+            in2 = int(gate_list[1])
+        return True
+    except:
+        return False
+
+def run() -> None:
+    result = 0
+    connexions: dict[str, list[int]] = {}
+    gates: list[list[str, str, str, str]] = []
+    pattern = r"^([a-z0-9]+)? ?(NOT|OR|AND|RSHIFT|LSHIFT)? ?([a-z0-9]+)? -> ([a-z]+)"
+    
+    entry_points = []
+    
+    for line in input:
+        in1, gate, in2, out = re.match(pattern, line).groups()
+
+        gates.append([in1, in2, gate, out])
+        if not in1 in connexions.keys():
+            connexions[in1] = []
+        connexions[in1].append(len(gates)-1)
+        if not in2 in connexions.keys():
+            connexions[in2] = []
+        connexions[in2].append(len(gates)-1)
+        
+        if gate == "LSHIFT" or gate == "RSHIFT":
+            continue
+        
+        try:
+            int(in1)
+            entry_points.append(in1)
+        except:
+            pass
+        try:
+            int(in2)
+            entry_points.append(in2)
+        except:
+            pass
+            
+    print(entry_points)
+    
+    current_wire = entry_points[0]
+    next_gates = []
+    con = connexions[current_wire]
+    for c in con:
+        if not can_calculate_gate(gates[c]):
+            continue
+        result = calculate_gate(gates[c])
+        out = gates[c][3]
+        for index in connexions[out]:
+            if gates[index][0] == out:
+                gates[index][0] = str(result)
+                if gates[index] not in next_gates:
+                    next_gates.append(gates[index])
+            if gates[index][1] == out:
+                gates[index][1] = str(result)
+                if gates[index] not in next_gates:
+                    next_gates.append(gates[index])
+        
+    while len(next_gates)>0:
+        next = next_gates.pop()
+        if not can_calculate_gate(next):
+            continue
+        result = calculate_gate(next)
+        out = next[3]
+        if out not in connexions.keys():
+            continue
+        for index in connexions[out]:
+            if gates[index][0] == out:
+                gates[index][0] = str(result)
+                if gates[index] not in next_gates:
+                    next_gates.append(gates[index])
+            if gates[index][1] == out:
+                gates[index][1] = str(result)
+                if gates[index] not in next_gates:
+                    next_gates.append(gates[index])
+                
+            
+    pass
+    
+    
+    return str(result)
+
+if __name__ == "__main__":
+    result = run()
+    print(f"Part 1 day {day} - {year}\nResult: {result}\n")
