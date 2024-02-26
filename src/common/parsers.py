@@ -1,7 +1,7 @@
 from src.common.globals import LAST_YEAR
 
 
-def parse_day(day: str) -> int:
+def parse_day(day: str | int) -> int:
     try:
         day = int(day)
         if day < 1 or day > 25:
@@ -12,7 +12,8 @@ def parse_day(day: str) -> int:
     return day
 
 
-def parse_year(year: str) -> int:
+def parse_year(year: str | int) -> int:
+    year = str(year)
     try:
         if len(year) == 4:
             year = int(year)
