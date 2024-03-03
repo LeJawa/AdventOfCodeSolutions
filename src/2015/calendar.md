@@ -170,7 +170,11 @@ This solution is the implementation to the part 1 problem. To solve part 2, I si
 
 ### Part One
 
+For this problem I reused the Bellman–Held–Karp algorithm from day 9. The only change was that for each distance I added the reverse distance as well. Then, I computed the `BHK` distance between the first person and itself (because it's a loop) while maximizing the distance (here, happiness).
+
 ### Part Two
+
+For part two I added a "me" person with a distance of 0 to all the other persons. I then ran the same algorithm as part 1.
 
 ## [Day 14: Reindeer Olympics](https://adventofcode.com/2015/day/14)
 
