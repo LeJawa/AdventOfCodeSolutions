@@ -7,7 +7,6 @@
 
 from src.common.load_file import load_file
 from src.common.function_import import import_function
-import copy
 
 year, day = 2015, 9
 input: list[str] = load_file(year, day)

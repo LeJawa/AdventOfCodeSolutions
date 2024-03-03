@@ -36,15 +36,10 @@ def get_obj_sum(obj: dict) -> int:
     total = 0
 
     for key in obj.keys():
-        if isinstance(obj[key], dict):
-            total += get_obj_sum(obj[key])
-        elif isinstance(obj[key], list):
-            total += get_list_sum(obj[key])
-        else:
-            if obj[key] == "red":
-                return 0
+        if obj[key] == "red":
+            return 0
             
-            total += get_value(obj[key])
+        total += get_value(obj[key])
 
     return total
 
