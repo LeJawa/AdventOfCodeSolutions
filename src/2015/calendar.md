@@ -180,7 +180,11 @@ For part two I added a "me" person with a distance of 0 to all the other persons
 
 ### Part One
 
+I created a class `Reindeer` with the properties `speed`, `duration` and `rest`. I then created a method `get_distance_after_x_seconds` that returns the distance the reindeer has traveled after `x` seconds. If the deer is flying I add `speed*duration` if x > duration and `speed*x` if x <= duration. I then substract `duration` from `x` and set the deer to rest. If the deer is resting I substract `rest` from `x` and set the deer to fly. I loop until x is below 0. 
+
 ### Part Two
+
+For part 2 I looped through the 2503 seconds and moved each reindeer forward by one second. I had to keep track of each reindeer flying and resting time as well as distance traveled and points. Every second, the first reindeer(s) would get a point.
 
 ## [Day 15: Science for Hungry People](https://adventofcode.com/2015/day/15)
 
