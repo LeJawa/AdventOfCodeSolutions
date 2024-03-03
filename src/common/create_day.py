@@ -27,6 +27,8 @@ def create_day(year: str, day: str) -> None:
     # tests
     Path(f"tests/{year}").mkdir(parents=True, exist_ok=True)
     create_test_file(year, day)
+    
+    print(f"\n> Files created for day {day:02d} of year {year}\n")
 
 
 def create_part_file(year: int, day: int, part: int) -> None:

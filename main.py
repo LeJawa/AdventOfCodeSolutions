@@ -3,8 +3,8 @@ if __name__ == "__main__":
     from src.common.run import run_year
     from src.common.run import run_all_years
     
-    print("What do you want to do?")
     while(True):
+        print("What do you want to do?")
         answer = input("1. Create a new day\n2. Run a specific year\n3. Run all years\n4. Exit\n")        
         try:
             if answer == "1":
@@ -21,10 +21,3 @@ if __name__ == "__main__":
                 print("Invalid input, try again.")
         except:
             pass
-        finally:
-            print("What do you want to do?")
-        
-
-    
-    
-
