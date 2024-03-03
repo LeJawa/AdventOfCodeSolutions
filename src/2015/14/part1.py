@@ -2,7 +2,7 @@
 # Solution for part 1 of day 14/2015 #
 #                                    #
 #  Started:     2024/03/03           #
-#  Finished:    ----/--/--           #
+#  Finished:    2024/03/03           #
 ######################################
 
 from dataclasses import dataclass
