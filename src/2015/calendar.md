@@ -224,7 +224,11 @@ This one is an easier version, since I can break out of the loop as soon as I fo
 
 ### Part One
 
+This challenge involves implementing Conway's Game of Life. To prevent looping over the whole grid for each cell, I create a parallel grid to count the number of ON neighbours that each cell has. This is done in one pass over the whole grid. Once this grid is filled, I loop a second time over the grid to set the new state. The counting of lights is done in this second pass.
+
 ### Part Two
+
+Part two involves setting the corner lights to ON at the start and adding 4 additional conditions when deciding if the light must switch on or off. Each condition tests for each corner.
 
 ## [Day 19: Medicine for Rudolph](https://adventofcode.com/2015/day/19)
 
