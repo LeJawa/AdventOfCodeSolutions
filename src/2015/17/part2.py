@@ -1,8 +1,8 @@
 ######################################
 # Solution for part 2 of day 17/2015 #
 #                                    #
-#  Started:     2024/08/23           #
-#  Finished:    ----/--/--           #
+#  Started:     2024/08/24           #
+#  Finished:    2024/08/24           #
 ######################################
 
 from src.common.load_file import load_file
