@@ -30,7 +30,7 @@ def combinations(containers: list[int], r: int):
         s += sorted_containers[i]
     
     if s > EGGNOG_AMOUNT: # Only possible because pool is sorted
-        return l
+        return 0
     
     if s == EGGNOG_AMOUNT:
         l += 1

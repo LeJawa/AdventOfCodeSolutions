@@ -37,7 +37,7 @@ def brute_force(ingredients: list[tuple[int, int, int, int]]):
                     + l * ingredients[3][4]
                 )
                 if calories != 500:
-                    break
+                    continue
 
                 score = get_score(i, j, k, l, ingredients)
                 if score > max_score:

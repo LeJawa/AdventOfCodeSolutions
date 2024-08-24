@@ -190,19 +190,35 @@ For part 2 I looped through the 2503 seconds and moved each reindeer forward by 
 
 ### Part One
 
+After many infructuous tries, the easiest way involved brute forcing the solution. `i`, `j`, `k` and `l` stand for the percentage of each ingredient. Three nested for-loops vary `i`, `j` and `k`. `l` is defined as `100-i-j-k`. For each combination the score is calculated and compared to the max score.
+
 ### Part Two
+
+Part two is the same, except before calculating the score, I ensure that the sum of calories equals 500. Otherwise I continue the loop.
 
 ## [Day 16: Aunt Sue](https://adventofcode.com/2015/day/16)
 
 ### Part One
 
+Very easy challenge. From the input, I create a list of dictionaries. Each dictionary represents a Sue, with the known properties as keys and their value as, well, values.
+
+I then loop over all the Sues, checking their known properties and matching it to the MFCSAM result. The first Sue to have a match is the correct Sue.
+
 ### Part Two
+
+I used the same logic for part two, except that for certain properties (given in the text) I applied an inequality operator, instead of the equality operator.
 
 ## [Day 17: No Such Thing as Too Much](https://adventofcode.com/2015/day/17)
 
 ### Part One
 
+This one involves running through all the possible combinations in a list. I ripped the code from the itertools package website and only slightly modified it to return the number of valid combinations, instead of the combinations themselves. I also applied some tests, in order to return earlier and prevent unnecessary runtime.
+
+The combinations function returns the number of valid combinations for a given set size. To get the total number of combinations, for all the set sizes, a for-loop runs from 0 to number of containers and the combinations function is run each time.
+
 ### Part Two
+
+This one is an easier version, since I can break out of the loop as soon as I found some solutions.
 
 ## [Day 18: Like a GIF For Your Yard](https://adventofcode.com/2015/day/18)
 
