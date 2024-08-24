@@ -234,6 +234,8 @@ Part two involves setting the corner lights to ON at the start and adding 4 addi
 
 ### Part One
 
+Another trivial/brute force method. The answer is found looping through all the possible replacements and saving the all possible new molecules with that replacement to a common `Set`. At the end, the answer is the length of the `Set`.
+
 ### Part Two
 
 ## [Day 20: Infinite Elves and Infinite Houses](https://adventofcode.com/2015/day/20)
