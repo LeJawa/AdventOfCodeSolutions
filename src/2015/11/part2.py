@@ -11,24 +11,26 @@ from src.common.function_import import import_function
 year, day = 2015, 11
 input: list[str] = load_file(year, day)
 
+
 def run() -> None:
     check_password = import_function(year, day, 1, "check_password")
-    get_next_password = import_function(year, day, 1, "get_next_password")    
-    
+    get_next_password = import_function(year, day, 1, "get_next_password")
+
     password = input[0].strip()
-    
+
     first_password_found = False
-    
-    while(True):
+
+    while True:
         password = get_next_password(password)
-        
-        if (check_password(password)):
+
+        if check_password(password):
             if first_password_found:
                 break
-            
+
             first_password_found = True
-        
+
     return password
+
 
 if __name__ == "__main__":
     result = run()

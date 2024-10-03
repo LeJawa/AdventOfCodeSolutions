@@ -26,6 +26,7 @@ mfcsam_result = {
     "perfumes": 1,
 }
 
+
 def parse_sues(input: list[str]):
     sues: list[dict] = []
     for line in input:
@@ -53,7 +54,7 @@ def run() -> None:
         if sue_number != -1:
             result = sue_number
             break
-    
+
     return str(result)
 
 

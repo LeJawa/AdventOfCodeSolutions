@@ -11,6 +11,7 @@ from src.common.function_import import import_function
 year, day = 2015, 11
 input: list[str] = load_file(year, day)
 
+
 def get_next_password(old_password: str) -> str:
     new_password = ""
     incrementing = True
@@ -25,31 +26,32 @@ def get_next_password(old_password: str) -> str:
                 incrementing = False
 
         new_password += chr(next_ord)
-    
+
     return new_password[::-1]
 
+
 def check_password(password: str) -> bool:
-    
-    previous_char = ''    
-    
+
+    previous_char = ""
+
     one_pair_found = False
     two_pairs_found = False
     overlapping_pair = False
-    
+
     three_straight_found = False
     two_straight_going = False
-    
+
     for c in password:
         if c == "i" or c == "o" or c == "l":
             return False
-        
-        if previous_char == '':
+
+        if previous_char == "":
             previous_char = c
-            continue        
-        
+            continue
+
         if c == previous_char:
             two_straight_going = False
-            
+
             if not overlapping_pair:
                 if one_pair_found:
                     two_pairs_found = True
@@ -58,10 +60,10 @@ def check_password(password: str) -> bool:
                     overlapping_pair = True
             else:
                 overlapping_pair = False
-                
+
         else:
             overlapping_pair = False
-            
+
             if ord(c) == ord(previous_char) + 1:
                 if two_straight_going:
                     three_straight_found = True
@@ -69,18 +71,18 @@ def check_password(password: str) -> bool:
                     two_straight_going = True
             else:
                 two_straight_going = False
-        
+
         previous_char = c
-        
+
     return three_straight_found and two_pairs_found
 
 
 def run() -> None:
     password = input[0].strip()
-    
-    while(not check_password(password)):
+
+    while not check_password(password):
         password = get_next_password(password)
-        
+
     return password
 
 

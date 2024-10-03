@@ -10,19 +10,21 @@ from src.common.load_file import load_file
 year, day = 2015, 1
 input: list[str] = load_file(year, day)
 
+
 def run() -> None:
     result = 0
     for index, c in enumerate(input[0]):
         if result == -1:
             result = index
             break
-        
+
         if c == "(":
             result += 1
         else:
             result -= 1
-    
+
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()

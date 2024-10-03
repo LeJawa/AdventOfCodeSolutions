@@ -2,10 +2,12 @@ if __name__ == "__main__":
     from src.common.create_day import create_day
     from src.common.run import run_year
     from src.common.run import run_all_years
-    
-    while(True):
+
+    while True:
         print("What do you want to do?")
-        answer = input("1. Create a new day\n2. Run a specific year\n3. Run all years\n4. Exit\n")        
+        answer = input(
+            "1. Create a new day\n2. Run a specific year\n3. Run all years\n4. Exit\n"
+        )
         try:
             if answer == "1":
                 year, day = input("Enter year and day: ").split()

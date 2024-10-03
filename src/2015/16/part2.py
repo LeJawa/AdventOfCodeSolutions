@@ -35,8 +35,9 @@ def run() -> None:
         if sue_number != -1:
             result = sue_number
             break
-    
+
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()

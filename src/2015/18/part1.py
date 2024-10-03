@@ -23,10 +23,10 @@ def parse_input(input: list[str]) -> list[list[bool]]:
 
 def print_lights(lights: list[list[bool]], step: int = None):
     print()
-    
+
     if step is not None:
         print(f"Step {step}:")
-        
+
     n = len(lights)
     for x in range(n):
         print("".join(["#" if lights[x][i] else "." for i in range(n)]))

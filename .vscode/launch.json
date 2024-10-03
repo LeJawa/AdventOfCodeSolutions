@@ -23,6 +23,6 @@
               "PYTHONPATH": "${workspaceFolder}"
             }
         },
-        
+
     ]
 }

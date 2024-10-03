@@ -13,6 +13,7 @@ input: list[str] = load_file(year, day)
 
 EGGNOG_AMOUNT = 150
 
+
 # Taken from https://docs.python.org/3/library/itertools.html#itertools.combinations
 # Not one of my finest moments...
 def combinations(containers: list[int], r: int):
@@ -28,10 +29,10 @@ def combinations(containers: list[int], r: int):
     s = 0
     for i in indices:
         s += sorted_containers[i]
-    
-    if s > EGGNOG_AMOUNT: # Only possible because pool is sorted
+
+    if s > EGGNOG_AMOUNT:  # Only possible because pool is sorted
         return 0
-    
+
     if s == EGGNOG_AMOUNT:
         l += 1
     while True:
@@ -43,7 +44,7 @@ def combinations(containers: list[int], r: int):
         indices[i] += 1
         for j in range(i + 1, r):
             indices[j] = indices[j - 1] + 1
-        
+
         s = 0
         for i in indices:
             s += sorted_containers[i]

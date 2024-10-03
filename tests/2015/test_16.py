@@ -7,6 +7,7 @@ answer_file = "answers/2015/16.txt"
 part1_answer = None
 part2_answer = None
 
+
 def test_get_part1_answer() -> str:
     with open(answer_file, "r") as f:
         try:
@@ -16,6 +17,7 @@ def test_get_part1_answer() -> str:
 
     assert part1_answer is not None
     return part1_answer
+
 
 def test_get_part2_answer() -> str:
     with open(answer_file, "r") as f:
@@ -28,8 +30,10 @@ def test_get_part2_answer() -> str:
     assert part2_answer is not None
     return part2_answer
 
+
 def test_part1() -> None:
     assert part1.run() == test_get_part1_answer()
+
 
 def test_part2() -> None:
     assert part2.run() == test_get_part2_answer()

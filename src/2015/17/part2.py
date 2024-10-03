@@ -13,6 +13,7 @@ input: list[str] = load_file(year, day)
 
 combinations = import_function(2015, 17, 1, "combinations")
 
+
 def run() -> None:
     containers: list[int] = []
     for line in input:
@@ -26,8 +27,9 @@ def run() -> None:
             break
 
     result = ways
-    
+
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()
