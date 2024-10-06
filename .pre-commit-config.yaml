@@ -18,7 +18,7 @@ repos:
         entry: python encrypt_hook/data_encryptor.py
         language: python
         always_run: true
-        additional_dependencies: 
+        additional_dependencies:
           - cryptography
 
 
