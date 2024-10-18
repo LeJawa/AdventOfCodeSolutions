@@ -16,16 +16,16 @@ parse_input = import_function(2015, 19, 1, "parse_input")
 year, day = 2015, 19
 input: list[str] = load_test_file(year, day)
 
-def run() -> None:    
+
+def run() -> None:
     replacements, final_molecule = parse_input(input)
-    
-    
+
     print(replacements)
     print(final_molecule)
-    
-    
+
     result = 0
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()

@@ -14,15 +14,15 @@ Part 2 is similar, except we keep track of the indices of the instructions. When
 
 ### Part One
 
-For each L x W x H, we add `2 * (LW + LH + WH)` plus the minimum between LW, LH and WH to the total. 
+For each L x W x H, we add `2 * (LW + LH + WH)` plus the minimum between LW, LH and WH to the total.
 
 Final formula: `2LW + 2LH + 2WH + min(LW, LH, WH)`.
 
 ### Part Two
 
-For part 2, we need to add the volume (i.e. `LWH`) as well as the smallest perimeter of any one face. 
+For part 2, we need to add the volume (i.e. `LWH`) as well as the smallest perimeter of any one face.
 
-Instead of finding the smallest perimeter (which amounts to finding the smallest two values between L, W and H), we can add all the perimeters (i.e. `2L + 2W + 2H`) and subtract the largest side twice. 
+Instead of finding the smallest perimeter (which amounts to finding the smallest two values between L, W and H), we can add all the perimeters (i.e. `2L + 2W + 2H`) and subtract the largest side twice.
 
 Final formula: `LWH + 2(L + W + H) - 2(max(L, W, H))`.
 
@@ -30,7 +30,7 @@ Final formula: `LWH + 2(L + W + H) - 2(max(L, W, H))`.
 
 ### Part One
 
-For this challenge I have created a `UniqueLocations` class that keeps track of the unique locations visited. 
+For this challenge I have created a `UniqueLocations` class that keeps track of the unique locations visited.
 
 Internally it is a dictionary of dictionaries, which makes it very efficient (O(1)) to check if a location has been visited before.
 
@@ -63,7 +63,7 @@ I used regex to find the patterns in the strings. The only difficulty was matchi
 
 ### Part Two
 
-For Part 2 I again made use of the `\1` syntax for the two patterns necessary. 
+For Part 2 I again made use of the `\1` syntax for the two patterns necessary.
 
 ## [Day 6: Probably a Fire Hazard](https://adventofcode.com/2015/day/6)
 
@@ -109,7 +109,7 @@ Part two is easier. The encoded length is the code length plus one per backslash
 ## [Day 9: All in a Single Night](https://adventofcode.com/2015/day/9)
 
 ### Part One
-This problem is a traveling salesman problem without return to the first city. To solve it I implemented the Bellman–Held–Karp algorithm. 
+This problem is a traveling salesman problem without return to the first city. To solve it I implemented the Bellman–Held–Karp algorithm.
 
 My input is a dictionary with the cities as keys and a dictionary with the distances to the other cities as values.
 
@@ -180,7 +180,7 @@ For part two I added a "me" person with a distance of 0 to all the other persons
 
 ### Part One
 
-I created a class `Reindeer` with the properties `speed`, `duration` and `rest`. I then created a method `get_distance_after_x_seconds` that returns the distance the reindeer has traveled after `x` seconds. If the deer is flying I add `speed*duration` if x > duration and `speed*x` if x <= duration. I then substract `duration` from `x` and set the deer to rest. If the deer is resting I substract `rest` from `x` and set the deer to fly. I loop until x is below 0. 
+I created a class `Reindeer` with the properties `speed`, `duration` and `rest`. I then created a method `get_distance_after_x_seconds` that returns the distance the reindeer has traveled after `x` seconds. If the deer is flying I add `speed*duration` if x > duration and `speed*x` if x <= duration. I then substract `duration` from `x` and set the deer to rest. If the deer is resting I substract `rest` from `x` and set the deer to fly. I loop until x is below 0.
 
 ### Part Two
 
@@ -273,5 +273,3 @@ Another trivial/brute force method. The answer is found looping through all the 
 ### Part One
 
 ### Part Two
-
-

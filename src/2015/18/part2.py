@@ -16,17 +16,18 @@ input: list[str] = load_file(year, day)
 
 STEPS = 100
 
+
 def run() -> None:
     lights = parse_input(input)
-    
+
     GRID_SIZE = len(lights)
-    
+
     # Set stuck lights on
     lights[0][0] = True
     lights[0][GRID_SIZE - 1] = True
     lights[GRID_SIZE - 1][0] = True
     lights[GRID_SIZE - 1][GRID_SIZE - 1] = True
-    
+
     # print_lights(lights, 0)
 
     for step in range(STEPS):
@@ -65,12 +66,13 @@ def run() -> None:
                     or (x == GRID_SIZE - 1 and y == GRID_SIZE - 1)
                 )
                 lights_on += 1 if lights[y][x] else 0
-        
+
         # print_lights(lights, step + 1)
 
     result = lights_on
 
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()

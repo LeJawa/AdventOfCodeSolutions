@@ -21,8 +21,9 @@
             "justMyCode": true,
             "env": {
               "PYTHONPATH": "${workspaceFolder}"
-            }
+            },
+            // "args": ["--force"]
         },
-        
+
     ]
 }

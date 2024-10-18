@@ -11,17 +11,19 @@ from src.common.function_import import import_function
 year, day = 2015, 10
 input: list[str] = load_file(year, day)
 
+
 def run() -> None:
     look_n_say = import_function(2015, 10, 1, "look_n_say")
-    
+
     number = input[0].strip()
-    
+
     for _ in range(50):
-        number = look_n_say(number)   
-    
+        number = look_n_say(number)
+
     result = len(number)
-    
+
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()

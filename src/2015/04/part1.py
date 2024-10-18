@@ -15,37 +15,41 @@ from multiprocessing import Process, Queue, cpu_count
 
 STEP = cpu_count() - 1
 
-def do_job(prefix: str, start: int, target: str, zeros: int, result: Queue):    
-    while md5( (prefix + str(start)).encode() ).hexdigest()[:zeros] != target:
+
+def do_job(prefix: str, start: int, target: str, zeros: int, result: Queue):
+    while md5((prefix + str(start)).encode()).hexdigest()[:zeros] != target:
         start += STEP
     result.put(start)
     return True
 
+
 def get_number(prefix, zeros: int):
     processes: list[Process] = []
     result = Queue()
-    target = "0"*zeros
+    target = "0" * zeros
 
     # creating processes
     for start in range(STEP):
         p = Process(target=do_job, args=(prefix, start, target, zeros, result))
         processes.append(p)
-    
+
     for p in processes:
         p.start()
-        
+
     number = result.get()
-    
+
     for p in processes:
         p.terminate()
-    
+
     return number
 
-def run() -> None:    
+
+def run() -> None:
     input: list[str] = load_file(year, day)
     result = get_number(input[0].strip(), 5)
-     
+
     return str(result)
+
 
 if __name__ == "__main__":
     result = run()
