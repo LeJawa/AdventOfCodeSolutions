@@ -238,6 +238,10 @@ Another trivial/brute force method. The answer is found looping through all the 
 
 ### Part Two
 
+Part two was more complicated. I decided to work backwards from the finished molecule until `'e'`. First I tried a recursion method, but kept getting stuck with an unworkable molecule. I read some litterature and learned about the CYK algorithm, context-free grammars and Chomsky normal forms... After some reading I decided to save the CYK algorithm for another time, and try again but with a more greedy approach.
+
+This time a simple double loop was meant to save me. My secret weapon was sorting the molecule replacements from longer to shorter. It also failed, getting stuck in a similar way. My naive solution was to shuffle the replacements array every time I was stuck, and start over. Turns out it works and is quite fast, only needing to shuffle less than 10 times on average.
+
 ## [Day 20: Infinite Elves and Infinite Houses](https://adventofcode.com/2015/day/20)
 
 ### Part One
