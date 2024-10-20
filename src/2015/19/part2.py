@@ -18,20 +18,24 @@ input: list[str] = load_file(year, day)
 # input: list[str] = load_test_file(year, day)
 
 def parse_replacements(replacements: list[tuple[str, str]]) -> dict[str, str]:
-    replacement_dict = {}
+    first_replacement_dict = {}
+    second_replacement_dict = {}
     
     for r in replacements:
-        if r[1] in replacement_dict.keys():
-            print("error", r[1])
-        replacement_dict[r[1]] = r[0]
+        if "Rn" in r[1]:
+            first_replacement_dict[r[1]] = r[0]
+        else:
+            second_replacement_dict[r[1]] = r[0]
     
-    return replacement_dict
+    return first_replacement_dict, second_replacement_dict
 
-def reduce_molecule(molecule: str, replacement_dict: dict[str, str], steps) -> str:
+def reduce_molecule(molecule: str, first_replacement_dict: dict[str, str], second_replacement_dict: dict[str, str], steps) -> str:
     if molecule == "e":
         return steps
     
-    for key in replacement_dict.keys():
+    change_made = False
+    
+    for key in first_replacement_dict.keys():
         
         indices = []
         
@@ -43,14 +47,36 @@ def reduce_molecule(molecule: str, replacement_dict: dict[str, str], steps) -> s
             if new_idx != -1:
                 idx += new_idx + 1
             else:
-                idx = -1
-        
-        for idx in indices:
-            temp_molecule = molecule.replace(key, replacement_dict[key], 1)
-            if replacement_dict[key] == "e" and temp_molecule != "e":
+                idx = -1           
+            
+            temp_molecule = molecule.replace(key, first_replacement_dict[key], 1)
+            if first_replacement_dict[key] == "e" and temp_molecule != "e":
                 continue
             else:
-                result = reduce_molecule(temp_molecule, replacement_dict, steps+1)
+                result = reduce_molecule(temp_molecule, first_replacement_dict, second_replacement_dict, steps+1)
+                if result != -1:
+                    return result
+                # print(steps)
+    
+    for key in second_replacement_dict.keys():
+        
+        indices = []
+        
+        idx = molecule.find(key)
+        
+        while idx != -1:
+            indices.append(idx)
+            new_idx = molecule[idx+len(key):].find(key)
+            if new_idx != -1:
+                idx += new_idx + 1
+            else:
+                idx = -1           
+            
+            temp_molecule = molecule.replace(key, second_replacement_dict[key], 1)
+            if second_replacement_dict[key] == "e" and temp_molecule != "e":
+                continue
+            else:
+                result = reduce_molecule(temp_molecule, first_replacement_dict, second_replacement_dict, steps+1)
                 if result != -1:
                     return result
                 # print(steps)
@@ -64,10 +90,10 @@ def run() -> None:
     print(replacements)
     print(final_molecule)
     
-    replacement_dict = parse_replacements(replacements)
+    first_replacement_dict, second_replacement_dict = parse_replacements(replacements)
     molecule = "HCaCaF"
     
-    steps = reduce_molecule(final_molecule, replacement_dict, 0)
+    steps = reduce_molecule(final_molecule, first_replacement_dict, second_replacement_dict, 0)
     
 
     result = steps
